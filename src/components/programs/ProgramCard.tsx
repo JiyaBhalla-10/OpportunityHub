@@ -1,60 +1,46 @@
 import { Clock, Building2 } from "lucide-react";
+import type { Program } from "@/data/programs";
 
-interface Program {
-  id: string;
-  company: string;
-  title: string;
-  description: string;
-  category: "hackathon" | "scholarship" | "software" | "research" | "opensource" | "consulting";
-  period: string;
-  eligibleYears: number[];
-  isRemote?: boolean;
-}
+type ProgramCategory = Program["category"];
 
 interface ProgramCardProps {
   program: Program;
 }
 
-const categoryColors: Record<string, { border: string; badge: string; badgeText: string }> = {
+const categoryColors: Record<"hackathon" | "opensource", { border: string; badge: string; badgeText: string }> = {
   hackathon: {
     border: "border-t-red-500",
     badge: "badge-hackathon",
     badgeText: "Hackathon",
   },
-  scholarship: {
-    border: "border-t-green-500",
-    badge: "badge-scholarship",
-    badgeText: "Scholarship",
+  opensource: {
+    border: "border-t-emerald-500",
+    badge: "badge-opensource",
+    badgeText: "Open Source",
   },
-  software: {
-    border: "border-t-purple-500",
-    badge: "badge-software",
-    badgeText: "Software",
-  },
-  research: {
-    border: "border-t-yellow-500",
-    badge: "badge-research",
-    badgeText: "Research",
+};
+  hackathon: {
+    border: "border-t-red-500",
+    badge: "badge-hackathon",
+    badgeText: "Hackathon",
   },
   opensource: {
     border: "border-t-emerald-500",
     badge: "badge-opensource",
-    badgeText: "Open-source",
-  },
-  consulting: {
-    border: "border-t-blue-500",
-    badge: "badge-consulting",
-    badgeText: "Consulting",
+    badgeText: "Open Source",
   },
 };
 
 const yearLabels = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
 const ProgramCard = ({ program }: ProgramCardProps) => {
-  const colors = categoryColors[program.category];
+  const isAllowedCategory = program.category === "hackathon" || program.category === "opensource";
+  const colors = isAllowedCategory ? categoryColors[program.category] : undefined;
 
   return (
-    <div className={`bg-card rounded-xl border border-border ${colors.border} border-t-4 p-5 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1`}>
+    <div
+      className={`bg-card rounded-xl border border-border ${colors?.border ?? "border-t-border"} border-t-4 p-5 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1`}
+    >
       {/* Header */}
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -63,9 +49,11 @@ const ProgramCard = ({ program }: ProgramCardProps) => {
           </div>
           <span className="font-semibold text-foreground">{program.company}</span>
         </div>
-        <span className={`px-2.5 py-1 rounded-full text-xs font-medium border ${colors.badge}`}>
-          {colors.badgeText}
-        </span>
+        {colors && (
+          <span className={`px-2.5 py-1 rounded-full text-xs font-medium border ${colors.badge}`}>
+            {colors.badgeText}
+          </span>
+        )}
       </div>
 
       {/* Remote Badge */}

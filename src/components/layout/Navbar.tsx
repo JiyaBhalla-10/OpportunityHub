@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Home, Building2, Map, BookOpen, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
@@ -11,9 +11,9 @@ import {
 const navItems = [
   { name: "Home", path: "/", icon: Home },
   { name: "Programs", path: "/programs", icon: Building2 },
-  { 
-    name: "Roadmaps", 
-    path: "/roadmaps", 
+  {
+    name: "Roadmaps",
+    path: "/roadmaps",
     icon: Map,
     dropdown: [
       { name: "Data Structures & Algorithms", path: "/roadmaps/dsa" },
@@ -22,13 +22,14 @@ const navItems = [
       { name: "AI & Machine Learning", path: "/roadmaps/aiml" },
       { name: "Blockchain Development", path: "/roadmaps/blockchain" },
       { name: "AR/VR Development", path: "/roadmaps/arvr" },
-    ]
+    ],
   },
   { name: "Resources", path: "/resources", icon: BookOpen },
 ];
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const isActive = (path: string) => {
@@ -45,13 +46,15 @@ const Navbar = () => {
 
           if (item.dropdown) {
             return (
-              <DropdownMenu key={item.name}>
+              <DropdownMenu key={item.name} open={isOpen} onOpenChange={setIsOpen}>
                 <DropdownMenuTrigger asChild>
                   <button
+                    type="button"
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                      ${active 
-                        ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-500/25" 
-                        : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                      ${
+                        active
+                          ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-500/25"
+                          : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                       }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -59,18 +62,19 @@ const Navbar = () => {
                     <ChevronDown className="w-3 h-3" />
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent 
+                <DropdownMenuContent
                   className="glass-nav border-white/10 mt-2 min-w-[200px]"
                   align="center"
                 >
                   {item.dropdown.map((subItem) => (
-                    <DropdownMenuItem key={subItem.name} asChild>
-                      <Link 
-                        to={subItem.path}
-                        className="cursor-pointer text-muted-foreground hover:text-foreground"
-                      >
-                        {subItem.name}
-                      </Link>
+                    <DropdownMenuItem
+                      key={subItem.name}
+                      className="cursor-pointer text-muted-foreground hover:text-foreground"
+                      onSelect={() => {
+                        navigate(subItem.path);
+                      }}
+                    >
+                      {subItem.name}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -83,9 +87,10 @@ const Navbar = () => {
               key={item.name}
               to={item.path}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                ${active 
-                  ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-500/25" 
-                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                ${
+                  active
+                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white shadow-lg shadow-purple-500/25"
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                 }`}
             >
               <Icon className="w-4 h-4" />
@@ -99,3 +104,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
