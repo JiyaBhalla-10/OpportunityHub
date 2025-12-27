@@ -19,17 +19,6 @@ const categoryColors: Record<"hackathon" | "opensource", { border: string; badge
     badgeText: "Open Source",
   },
 };
-  hackathon: {
-    border: "border-t-red-500",
-    badge: "badge-hackathon",
-    badgeText: "Hackathon",
-  },
-  opensource: {
-    border: "border-t-emerald-500",
-    badge: "badge-opensource",
-    badgeText: "Open Source",
-  },
-};
 
 const yearLabels = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
