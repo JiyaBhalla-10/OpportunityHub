@@ -125,17 +125,17 @@ const Roadmaps = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-foreground mb-2">
                   {roadmap.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4">
                   {roadmap.description}
                 </p>
 
                 {/* Meta */}
-                <div className="flex items-center gap-4 text-xs text-gray-500 mb-4">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                   <span>{roadmap.duration}</span>
                   <span>•</span>
                   <span>{roadmap.difficulty}</span>
@@ -143,12 +143,12 @@ const Roadmaps = () => {
 
                 {/* Skills */}
                 <div className="mb-6">
-                  <p className="text-xs text-gray-500 mb-2">Key Skills</p>
+                  <p className="text-xs text-muted-foreground mb-2">Key Skills</p>
                   <div className="flex flex-wrap gap-2">
                     {roadmap.skills.map((skill) => (
-                      <span 
-                        key={skill} 
-                        className="px-2 py-1 rounded-full text-xs bg-white/10 text-gray-300"
+                      <span
+                        key={skill}
+                        className="px-2 py-1 rounded-full text-xs bg-muted text-muted-foreground"
                       >
                         {skill}
                       </span>
@@ -157,7 +157,7 @@ const Roadmaps = () => {
                 </div>
 
                 {/* CTA */}
-                <div className="flex items-center gap-2 text-sm font-medium text-purple-400 group-hover:text-purple-300 transition-colors group-hover:gap-3">
+                <div className="flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group-hover:gap-3">
                   View Roadmap
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </div>

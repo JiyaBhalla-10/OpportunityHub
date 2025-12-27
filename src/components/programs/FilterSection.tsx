@@ -70,11 +70,7 @@ const FilterSection = ({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Categories</SelectItem>
-            <SelectItem value="software">Software</SelectItem>
             <SelectItem value="hackathon">Hackathon</SelectItem>
-            <SelectItem value="scholarship">Scholarship</SelectItem>
-            <SelectItem value="research">Research</SelectItem>
-            <SelectItem value="consulting">Consulting</SelectItem>
             <SelectItem value="opensource">Open Source</SelectItem>
           </SelectContent>
         </Select>
