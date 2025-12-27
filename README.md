@@ -75,7 +75,7 @@ npm install
 
 #### Start the development server
 npm run dev
----
+
 ## Development Workflow
 
 - Develop locally using your preferred IDE
@@ -85,10 +85,10 @@ npm run dev
 - All changes are version-controlled via Git
 ---
 ## Developer
-Jiya Bhalla|B.Tech CSE-2
-IGDTUW’28
+- Jiya Bhalla|B.Tech CSE-2
+- IGDTUW’28
 ---
 ## License
 
-This project is developed primarily for educational and opportunity-discovery purposes, with a focus on helping students explore and access tech career opportunities.
+- This project is developed primarily for educational and opportunity-discovery purposes, with a focus on helping students explore and access tech career opportunities.
 ---
