@@ -16,9 +16,12 @@ const navItems = [
     path: "/roadmaps", 
     icon: Map,
     dropdown: [
-      { name: "DSA Roadmap", path: "/roadmaps/dsa" },
+      { name: "Data Structures & Algorithms", path: "/roadmaps/dsa" },
       { name: "Frontend Development", path: "/roadmaps/frontend" },
       { name: "Backend Development", path: "/roadmaps/backend" },
+      { name: "AI & Machine Learning", path: "/roadmaps/aiml" },
+      { name: "Blockchain Development", path: "/roadmaps/blockchain" },
+      { name: "AR/VR Development", path: "/roadmaps/arvr" },
     ]
   },
   { name: "Resources", path: "/resources", icon: BookOpen },
