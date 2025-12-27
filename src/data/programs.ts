@@ -3,7 +3,7 @@ export interface Program {
   company: string;
   title: string;
   description: string;
-  category: "hackathon" | "scholarship" | "software" | "research" | "opensource" | "consulting";
+  category: "hackathon" | "scholarship" | "software" | "research" | "opensource";
   period: string;
   eligibleYears: number[];
   isRemote?: boolean;
@@ -135,7 +135,7 @@ export const programs: Program[] = [
     company: "LinkedIn",
     title: "LinkedIn CoachIn",
     description: "Mentorship program connecting students with LinkedIn professionals for career guidance.",
-    category: "consulting",
+    category: "software",
     period: "Year-round",
     eligibleYears: [1, 2, 3, 4],
     isRemote: true,
@@ -195,7 +195,7 @@ export const programs: Program[] = [
     company: "Women Who Code",
     title: "WWC Mentorship",
     description: "Global mentorship program connecting women in tech with industry professionals.",
-    category: "consulting",
+    category: "software",
     period: "Year-round",
     eligibleYears: [1, 2, 3, 4],
     isRemote: true,
@@ -205,7 +205,7 @@ export const programs: Program[] = [
     company: "CodeCafe",
     title: "Codess Cafe Mentorship",
     description: "Mentorship and community program for women pursuing careers in technology.",
-    category: "consulting",
+    category: "software",
     period: "Year-round",
     eligibleYears: [1, 2, 3, 4],
     isRemote: true,
