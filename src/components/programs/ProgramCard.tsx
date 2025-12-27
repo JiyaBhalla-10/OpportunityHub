@@ -45,12 +45,6 @@ const ProgramCard = ({ program }: ProgramCardProps) => {
         )}
       </div>
 
-      {/* Remote Badge */}
-      {program.isRemote && (
-        <span className="inline-block px-2.5 py-1 rounded-full text-xs font-medium badge-remote border mb-3">
-          Remote
-        </span>
-      )}
 
       {/* Title */}
       <h3 className="font-bold text-lg text-foreground mb-2 line-clamp-2">
